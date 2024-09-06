@@ -21,10 +21,11 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Adding known hosts.
+      - name: Adding known hosts and ssh key.
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan github.com >> ~/.ssh/known_hosts
+          echo "${{ secrets.SSH_DEPLOY_KEY_ANSIBLE_ROLES }}" > ~/.ssh/id_rsa
 
       - name: Install test dependencies.
         run: pip3 install --break-system-packages yamllint ansible ansible-lint
@@ -32,8 +33,8 @@ jobs:
       - name: Lint code.
         run: |
           yamllint .
-          eval `ssh-agent -s`
-          ssh-add - <<< '${{ secrets.SSH_DEPLOY_KEY_ANSIBLE_ROLES }}'
+        #   eval `ssh-agent -s`
+        #   ssh-add - <<< '${{ secrets.SSH_DEPLOY_KEY_ANSIBLE_ROLES }}'
           ansible-lint
 
   integration:
@@ -52,18 +53,19 @@ jobs:
         run: |
           pip3 install --break-system-packages ansible
 
-      - name: Adapting known hosts.
+      - name: Adapting known hosts and ssh key.
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan github.com >> ~/.ssh/known_hosts
+          echo "${{ secrets.SSH_DEPLOY_KEY_ANSIBLE_ROLES }}" > ~/.ssh/id_rsa
 
       - name: Set up the test environment.
         run: |
           cp tests/ansible.cfg ./ansible.cfg
           cp tests/inventory ./inventory
           cp tests/config.yml ./config.yml
-          eval `ssh-agent -s`
-          ssh-add - <<< '${{ secrets.SSH_DEPLOY_KEY_ANSIBLE_ROLES }}'
+        #   eval `ssh-agent -s`
+        #   ssh-add - <<< '${{ secrets.SSH_DEPLOY_KEY_ANSIBLE_ROLES }}'
           ansible-galaxy install -r requirements.yml
 
       - name: Test the playbook's syntax.
