@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: false
+  pre_tasks:
+    - name: Ensure openssh-server is installed.
+      package:
+        name:
+          - openssh-server
+        state: present
+
+- import_playbook: ../../main.yml
