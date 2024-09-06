@@ -9,10 +9,6 @@ configure_sudoers: false
 dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/src/git/dot-files
 dotfiles_files:
-  - name: .bashrc
-    src: linux/.bashrc
-    dst: .bashrc
-
   - name: .zshrc
     src: linux/.zshrc
     dst: .zshrc
