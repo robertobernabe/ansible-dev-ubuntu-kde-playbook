@@ -23,4 +23,3 @@
     state: link
     mode: 0644
   become: false
-
