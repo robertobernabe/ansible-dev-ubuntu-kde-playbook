@@ -1,0 +1,15 @@
+---
+version: '3'
+services:
+  ansible-dev-ubuntu-kde-playbook:
+    build:
+      context: .
+    stdin_open: true
+    tty: true
+    volumes:
+      - ${HOME}/.ssh:/tmp/.ssh
+      - ${HOME}/.config/git:/tmp/.config/git
+      - ..:/repo
+      # Needed for running docker in docker
+      # Just mapping the rootless user docker.sock to the system one.
+      - /var/run/user/1000/docker.sock:/var/run/docker.sock
