@@ -5,3 +5,6 @@ roles:
   - name: robertobernabe.dotfiles
     version: main
     src: git@github.com:robertobernabe/ansible-role-dotfiles.git
+    scm: git
+    # accept_hostkey: true
+
