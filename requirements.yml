@@ -1,0 +1,7 @@
+---
+collections:
+  - name: community.general
+roles:
+  - name: robertobernabe.dotfiles
+    version: main
+    src: https://github.com/robertobernabe/ansible-role-dotfiles.git
