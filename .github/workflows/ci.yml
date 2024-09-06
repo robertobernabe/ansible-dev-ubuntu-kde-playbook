@@ -33,8 +33,6 @@ jobs:
       - name: Lint code.
         run: |
           yamllint .
-        #   eval `ssh-agent -s`
-        #   ssh-add - <<< '${{ secrets.SSH_DEPLOY_KEY_ANSIBLE_ROLES }}'
           ansible-lint
 
   integration:
@@ -64,8 +62,6 @@ jobs:
           cp tests/ansible.cfg ./ansible.cfg
           cp tests/inventory ./inventory
           cp tests/config.yml ./config.yml
-        #   eval `ssh-agent -s`
-        #   ssh-add - <<< '${{ secrets.SSH_DEPLOY_KEY_ANSIBLE_ROLES }}'
           ansible-galaxy install -r requirements.yml
 
       - name: Test the playbook's syntax.
