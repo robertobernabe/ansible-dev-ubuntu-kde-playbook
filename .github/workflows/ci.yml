@@ -44,8 +44,7 @@ jobs:
 
       - name: Install test dependencies.
         run: |
-          sudo pip3 install --break-system-packages --upgrade pip
-          sudo pip3 install --break-system-packages ansible
+          pip3 install --break-system-packages ansible
 
       - name: Set up the test environment.
         run: |
