@@ -9,4 +9,5 @@
           - openssh-server
         state: present
 
-- import_playbook: ../../main.yml
+- name：Running the playbook
+  import_playbook: ../../main.yml
