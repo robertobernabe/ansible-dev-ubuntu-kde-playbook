@@ -1,0 +1,30 @@
+---
+- name: Ensure all configured dotfiles are links.
+  ansible.builtin.command: "ls -F ~/Music/radio_stations.m3u8"
+  register: existing_m3u_info
+  failed_when: false
+  check_mode: false
+  changed_when: false
+
+- name: Verbose
+  ansible.builtin.debug:
+    var: existing_m3u_info
+
+- name: Create directory if not exists.
+  ansible.builtin.file:
+    path: "~/Music/"
+    state: directory
+
+- name: Remove existing file if a replacement is being linked.
+  ansible.builtin.file:
+    path: "~/Music/radio_stations.m3u8"
+    state: absent
+  when: "'@' not in existing_m3u_info.stdout"
+
+- name: Link file into folder.
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/files/media/radio_stations.m3u8"
+    dest: "~/Music/radio_stations.m3u8"
+    state: link
+    mode: 0644
+  become: false
