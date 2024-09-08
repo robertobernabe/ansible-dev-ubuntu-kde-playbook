@@ -17,11 +17,13 @@ apt_packages:
   - audacious
   - audacious-plugins
   - audacious-plugins-data
+  - kate
+  - bruno
   - git
   - pipx
   - python3
 
-# Install packages from other package managers.
+# Install packages from other p66ackage managers.
 # Note: You are responsible for making sure the required package managers are
 # installed, eg. through homebrew.
 composer_packages: []
