@@ -3,6 +3,7 @@ extends: default
 
 ignore: |
   .github/workflows/
+  .github/dependabot.yml
 
 rules:
   line-length:
