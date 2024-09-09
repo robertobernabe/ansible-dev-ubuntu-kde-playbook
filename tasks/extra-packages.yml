@@ -10,7 +10,7 @@
     - python3-venv
   become: true
 
-- name: Adding extra  Apt repositories.
+- name: Adding extra Apt repositories.
   become: true
   block:
     - name: Download and install the public key.

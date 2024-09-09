@@ -40,7 +40,7 @@ apt_packages:
     update_cache: true
   - name: code
 
-# Install packages from other p66ackage managers.
+# Install packages from other package managers.
 # Note: You are responsible for making sure the required package managers are
 # installed, eg. through homebrew.
 composer_packages: []
