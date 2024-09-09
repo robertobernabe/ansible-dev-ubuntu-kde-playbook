@@ -6,8 +6,8 @@
       ansible.builtin.get_url:
         url: "{{ item.key_url }}"
         dest: "{{ item.key_dest }}"
-      loop: "{{ apt_repositories }}"
       when: item.key_url is defined
+      loop: "{{ apt_repositories }}"
 
     - name: Add Apt repositories.
       ansible.builtin.apt_repository:
