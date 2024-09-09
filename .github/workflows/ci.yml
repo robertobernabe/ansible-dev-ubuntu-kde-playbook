@@ -38,12 +38,13 @@ jobs:
 
   integration:
     name: Integration
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os.image }}
     strategy:
       matrix:
-        - os: ubuntu-22.04
-        - os: ubuntu-24.04
-          pip_install_extra_args: "--break-system-packages"
+        os:
+          - image: ubuntu-22.04
+          - image: ubuntu-24.04
+            pip_install_extra_args: "--break-system-packages"
 
     steps:
       - name: Check out the codebase.
