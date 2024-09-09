@@ -1,10 +1,16 @@
 ---
 extends: default
 
+ignore: |
+  .github/workflows/
+
 rules:
   line-length:
     max: 180
     level: warning
 
-ignore: |
-  .github/workflows/
+comments.min-spaces-from-content: 1
+comments-indentation must: false
+braces.min-spaces-inside: 0
+octal-values.forbid-implicit-octal: true
+octal-values.forbid-explicit-octal: true
