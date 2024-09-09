@@ -11,7 +11,12 @@
         "ms-vscode-remote.remote-wsl",
         "ms-python.python",
         "redhat.vscode-yaml",
-        "redhat.ansible"
+        "redhat.ansible",
+        "github.vscode-github-actions",
+        "streetsidesoftware.code-spell-checker",
+        "exiasr.hadolint",
+        "Gruntfuggly.todo-tree",
+        "shardulm94.trailing-spaces"
       ]
     }
   },

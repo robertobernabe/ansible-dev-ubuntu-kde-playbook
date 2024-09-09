@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 # Set the frontend to 'noninteractive' to avoid prompts
 ARG DEBIAN_FRONTEND=noninteractive
@@ -7,11 +7,12 @@ ENV TZ=Europe/Berlin
 
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
+# This variable is used to break system packages when installing Python packages using pip at system level.
+ENV PIP_BREAK_SYSTEM_PACKAGES="1"
 
 # Install apt packages
-RUN apt-get update -y --fix-missing && apt-get upgrade -y
-RUN apt-get install -y apt-utils
-RUN apt-get install -y \
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
+        apt-utils \
         apt-transport-https \
         gnupg-agent \
         ca-certificates \
@@ -21,7 +22,6 @@ RUN apt-get install -y \
         jq \
         language-pack-en-base \
         locales \
-        lsb-core \
         openssh-client \
         python3 \
         python3-pip \
@@ -35,8 +35,7 @@ RUN dpkg-reconfigure locales \
         && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 
 # Install pip modules
-RUN pip3 install \
-        pipenv \
+RUN pip3 install --no-cache-dir \
         ansible==9.9.0 \
         molecule[ansible]==24.7.0 \
         molecule-plugins[docker]==23.5.3 \
