@@ -21,8 +21,8 @@
     - import_tasks: tasks/extra-packages.yml
       tags: ['extra-packages']
 
-    - import_tasks: tasks/media.yml
-      tags: ['media']
+    - import_tasks: tasks/extra-files.yml
+      tags: ['extra-files']
 
     - name: Run post-provision task files in a block.
       tags: ['post']

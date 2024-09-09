@@ -12,6 +12,8 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    env:
+      PIP_BREAK_SYSTEM_PACKAGES: "1"
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
@@ -29,7 +31,7 @@ jobs:
           chmod 400 ~/.ssh/id_rsa
 
       - name: Install test dependencies.
-        run: pip3 install --break-system-packages yamllint ansible ansible-lint
+        run: pip3 install yamllint ansible ansible-lint
 
       - name: Lint code.
         run: |
@@ -38,19 +40,22 @@ jobs:
 
   integration:
     name: Integration
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os.image }}
+    env:
+      PIP_BREAK_SYSTEM_PACKAGES: "1"
     strategy:
+      fail-fast: false
       matrix:
         os:
-          - ubuntu-24.04
-
+          - image: ubuntu-22.04
+          - image: ubuntu-24.04
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
 
       - name: Install test dependencies.
         run: |
-          pip3 install --break-system-packages ansible
+          pip3 install ansible
 
       - name: Adapting known hosts and ssh key.
         run: |
