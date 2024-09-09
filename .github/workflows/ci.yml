@@ -41,10 +41,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os:
-          - ubuntu-22.04
-          - ubuntu-24.04
-            pip_install_extra_args: "--break-system-packages"
+        - os: ubuntu-22.04
+        - os: ubuntu-24.04
+          pip_install_extra_args: "--break-system-packages"
 
     steps:
       - name: Check out the codebase.
