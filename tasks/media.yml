@@ -26,5 +26,5 @@
     src: "{{ playbook_dir }}/files/media/radio_stations.m3u8"
     dest: "~/Music/radio_stations.m3u8"
     state: link
-    mode: 0644
+    mode: '0644'
   become: false
