@@ -13,13 +13,17 @@ dotfiles_files:
     src: linux/.zshrc
     dst: .zshrc
 
+extra_files:
+  - src: files/media/radio_stations.m3u8
+    dest: ~/Music/radio_stations.m3u8
+
 apt_repositories:
   - key_url: https://packages.microsoft.com/keys/microsoft.asc
-    key_dest: /etc/apt/keyrings/microsoft.asc
+    key_dest: /etc/apt/keyrings/packages.microsoft.asc
     repo: >-
-      deb [arch=amd64 signed-by=/etc/apt/keyrings/microsoft.asc]
-      https://packages.microsoft.com/ubuntu/{{ ansible_distribution_version }}/prod
-      {{ ansible_distribution_release }}
+      deb [arch=amd64 signed-by=/etc/apt/keyrings/packages.microsoft.asc]
+      https://packages.microsoft.com/repos/code
+      stable
       main
     state: present
     update_cache: true
@@ -28,13 +32,13 @@ apt_packages:
   - audacious
   - audacious-plugins
   - audacious-plugins-data
-  - kate
   - git
-  - pipx
-  - python3
-  - zsh
+  - kate
   - neovim
-
+  - zsh
+  - deb: https://packages.microsoft.com/config/{{ ansible_distribution | lower }}//{{ ansible_distribution_version }}/packages-microsoft-prod.deb
+    update_cache: yes
+  - name: code
 
 # Install packages from other p66ackage managers.
 # Note: You are responsible for making sure the required package managers are

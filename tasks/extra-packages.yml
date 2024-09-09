@@ -1,4 +1,15 @@
 ---
+- name: Making sure that, some packages are already available.
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - pipx
+    - python3
+    - python3-pip
+    - python3-venv
+  become: true
+
 - name: Adding extra  Apt repositories.
   become: true
   block:
@@ -18,7 +29,9 @@
 
 - name: Install System Apt packages.
   ansible.builtin.apt:
-    name: "{{ item.name | default(item) }}"
+    name: "{{ item.name | default(omit) }}"
+    deb: "{{ item.deb | default(omit) }}"
+    update_cache: "{{ item.update_cache | default('no') }}"
     state: "{{ item.state | default('present') }}"
   loop: "{{ apt_packages }}"
   become: true
@@ -29,6 +42,7 @@
     state: "{{ item.state | default('present') }}"
   loop: "{{ snap_packages }}"
   become: true
+  tags: molecule-notest  # Skip this task in molecule tests.
 
 - name: Install global Pip packages.
   ansible.builtin.pip:
