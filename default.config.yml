@@ -18,7 +18,7 @@ apt_repositories:
     key_dest: /etc/apt/keyrings/microsoft.asc
     repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/microsoft.asc] https://packages.microsoft.com/ubuntu/22.04/prod jammy main"
     state: present
-    update_cache: yes
+    update_cache: true
 
 apt_packages:
   - audacious
