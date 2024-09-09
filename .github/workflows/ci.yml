@@ -44,6 +44,7 @@ jobs:
         os:
           - ubuntu-22.04
           - ubuntu-24.04
+            pip_install_extra_args: "--break-system-packages"
 
     steps:
       - name: Check out the codebase.
@@ -51,7 +52,7 @@ jobs:
 
       - name: Install test dependencies.
         run: |
-          pip3 install --break-system-packages ansible
+          pip3 install ${{ matrix.os.pip_install_extra_args }} ansible
 
       - name: Adapting known hosts and ssh key.
         run: |
