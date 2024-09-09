@@ -16,7 +16,7 @@ dotfiles_files:
 apt_repositories:
   - key_url: https://packages.microsoft.com/keys/microsoft.asc
     key_dest: /etc/apt/keyrings/microsoft.asc
-    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/microsoft.asc] https://packages.microsoft.com/ubuntu/22.04/prod jammy main"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/microsoft.asc] https://packages.microsoft.com/ubuntu/{{ ansible_distribution_version }}/prod {{ ansible_distribution_release }} main"
     state: present
     update_cache: true
 
@@ -63,7 +63,7 @@ snap_packages:
 
   - name: spotify
     state: present
-  
+
   - name: bruno
     state: present
 

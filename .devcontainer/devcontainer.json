@@ -10,7 +10,8 @@
         "ms-vscode-remote.remote-containers",
         "ms-vscode-remote.remote-wsl",
         "ms-python.python",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "redhat.ansible"
       ]
     }
   },
