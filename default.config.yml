@@ -37,7 +37,7 @@ apt_packages:
   - neovim
   - zsh
   - deb: https://packages.microsoft.com/config/{{ ansible_distribution | lower }}//{{ ansible_distribution_version }}/packages-microsoft-prod.deb
-    update_cache: yes
+    update_cache: true
   - name: code
 
 # Install packages from other p66ackage managers.
