@@ -1,11 +1,13 @@
 ---
 - name: Adding extra  Apt repositories.
+  become: true
   block:
     - name: Download and install the public key.
       ansible.builtin.get_url:
         url: "{{ item.key_url }}"
         dest: "{{ item.key_dest }}"
       loop: "{{ apt_repositories }}"
+      when: item.key_url is defined
 
     - name: Add Apt repositories.
       ansible.builtin.apt_repository:
@@ -13,7 +15,6 @@
         state: "{{ item.state | default('present') }}"
         update_cache: "{{ item.update_cache | default('no') }}"
       loop: "{{ apt_repositories }}"
-  become: true
 
 - name: Install System Apt packages.
   ansible.builtin.apt:
