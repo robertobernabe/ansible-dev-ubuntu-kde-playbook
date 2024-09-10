@@ -4,6 +4,7 @@ extends: default
 ignore: |
   .github/workflows/
   .github/dependabot.yml
+  roles-extra/*
 
 rules:
   line-length:
