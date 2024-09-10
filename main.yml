@@ -16,6 +16,7 @@
     - role: robertobernabe.dotfiles
       when: configure_dotfiles
       tags: ['dotfiles']
+    - geerlingguy.docker
 
   tasks:
     - import_tasks: tasks/extra-packages.yml

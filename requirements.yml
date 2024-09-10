@@ -7,3 +7,5 @@ roles:
     src: git@github.com:robertobernabe/ansible-role-dotfiles.git
     scm: git
     # accept_hostkey: true
+
+  - name: geerlingguy.docker
