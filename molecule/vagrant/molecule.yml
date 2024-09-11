@@ -1,0 +1,16 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+platforms:
+  - name: instance
+    box: ds-ewo/kubuntu-desktop-24.04-lts
+    memory: 512
+    cpus: 1
+provisioner:
+  name: ansible
+  playbooks:
+    converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+  env:
+    ANSIBLE_ROLES_PATH: ./../../roles-extra/:./../../roles/
