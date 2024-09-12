@@ -24,13 +24,13 @@ apt_repositories:
     update_cache: true
 
 apt_packages:
-  - audacious
-  - audacious-plugins
-  - audacious-plugins-data
-  - git
-  - kate
-  - neovim
-  - zsh
+  - name: audacious
+  - name: audacious-plugins
+  - name: audacious-plugins-data
+  - name: git
+  - name: kate
+  - name: neovim
+  - name: zsh
   - deb: https://packages.microsoft.com/config/{{ ansible_distribution | lower }}//{{ ansible_distribution_version }}/packages-microsoft-prod.deb
     update_cache: true
   - name: code
