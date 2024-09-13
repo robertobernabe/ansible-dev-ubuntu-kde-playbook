@@ -24,15 +24,15 @@ apt_repositories:
     update_cache: true
 
 apt_packages:
+  - deb: https://packages.microsoft.com/config/{{ ansible_distribution | lower }}//{{ ansible_distribution_version }}/packages-microsoft-prod.deb
+  - deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - deb: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/obsidian_1.6.7_amd64.deb
+    update_cache: true
   - name: audacious
-  - name: audacious-plugins
-  - name: audacious-plugins-data
   - name: git
   - name: kate
   - name: neovim
   - name: zsh
-  - deb: https://packages.microsoft.com/config/{{ ansible_distribution | lower }}//{{ ansible_distribution_version }}/packages-microsoft-prod.deb
-    update_cache: true
   - name: code
 
 # Install packages from other package managers.
