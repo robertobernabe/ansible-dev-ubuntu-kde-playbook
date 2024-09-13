@@ -7,6 +7,9 @@ dotfiles_files:
   - name: .zshrc
     src: linux/.zshrc
     dst: .zshrc
+  - name: ~/.face
+    src: linux/.face
+    dst: .face
 
 extra_files:
   - src: files/media/radio_stations.m3u8
@@ -24,15 +27,15 @@ apt_repositories:
     update_cache: true
 
 apt_packages:
-  - audacious
-  - audacious-plugins
-  - audacious-plugins-data
-  - git
-  - kate
-  - neovim
-  - zsh
   - deb: https://packages.microsoft.com/config/{{ ansible_distribution | lower }}//{{ ansible_distribution_version }}/packages-microsoft-prod.deb
+  - deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - deb: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/obsidian_1.6.7_amd64.deb
     update_cache: true
+  - name: audacious
+  - name: git
+  - name: kate
+  - name: neovim
+  - name: zsh
   - name: code
 
 # Install packages from other package managers.
