@@ -7,6 +7,9 @@ dotfiles_files:
   - name: .zshrc
     src: linux/.zshrc
     dst: .zshrc
+  - name: ~/.face
+    src: linux/.face
+    dst: .face
 
 extra_files:
   - src: files/media/radio_stations.m3u8
