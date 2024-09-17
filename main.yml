@@ -4,6 +4,7 @@
   gather_facts: true
   vars_files:
     - default.config.yml
+    - "{{ playbook_dir }}/config.yml" # FIXME: Just for testing.
 
   pre_tasks:
     - name: Include playbook configuration.
