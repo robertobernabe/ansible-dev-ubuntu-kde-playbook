@@ -55,7 +55,7 @@ jobs:
 
       - name: Install test dependencies.
         run: |
-          pip3 install ansible
+          pip3 install ansible==9.9.0
 
       - name: Adapting known hosts and ssh key.
         run: |
