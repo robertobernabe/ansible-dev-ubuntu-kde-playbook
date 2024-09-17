@@ -1,0 +1,14 @@
+---
+- name: Setting up the extra configuration for openssh server.
+  block:
+    - name: Check if the sshd_config.d directory exists
+      ansible.builtin.stat:
+        path: /etc/ssh/sshd_config.d/
+      register: sshd_config_d
+
+    - name: Setting  an additional sshd_config file.
+      ansible.builtin.copy:
+        src: files/ssh_config.d/unfreeze-openssh-server.conf
+        dest: /etc/ssh/sshd_config.d/unfreeze-openssh-server.conf
+      when: sshd_config_d.stat.exists
+      become: true

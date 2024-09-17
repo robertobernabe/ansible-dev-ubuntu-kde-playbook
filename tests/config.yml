@@ -1,2 +1,36 @@
 ---
+
+# dotfiles_repo:
+dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/dot-files
+dotfiles_files:
+  - name: .zshrc
+    src: linux/.zshrc
+    dst: .zshrc
+
+extra_files:
+  - src: files/media/radio_stations.m3u8
+    dest: ~/Music/radio_stations.m3u8
+
+apt_repositories: []
+
+apt_packages:
+  - name: vim
+
+# Install packages from other package managers.
+# Note: You are responsible for making sure the required package managers are
+# installed, eg. through homebrew.
+composer_packages: []
+gem_packages: []
+npm_packages: []
+pip_packages: []
+
+pipx_packages:
+  - name: poetry
+    state: present  # present/absent/latest, default: present
+
+snap_packages: []
+
+# Glob pattern to ansible task files to run after all other tasks are finished.
+post_provision_tasks:
+  - tasks/extra-config-openssh-server.yml
