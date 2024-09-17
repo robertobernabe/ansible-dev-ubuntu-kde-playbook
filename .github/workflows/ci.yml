@@ -31,7 +31,7 @@ jobs:
           chmod 400 ~/.ssh/id_rsa
 
       - name: Install test dependencies.
-        run: pip3 install yamllint -r ../.devcontainer/requirements.txt
+        run: pip3 install yamllint -r ./.devcontainer/requirements.txt
 
       - name: Lint code.
         run: |
@@ -55,7 +55,7 @@ jobs:
 
       - name: Install test dependencies.
         run: |
-          pip3 install -r ../.devcontainer/requirements.txt
+          pip3 install -r ./.devcontainer/requirements.txt
 
       - name: Adapting known hosts and ssh key.
         run: |
