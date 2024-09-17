@@ -4,7 +4,6 @@
 
   vars_files:
     - default.config.yml
-    - config.yml # FIXME: Just for testing.
 
   pre_tasks:
     - name: Include playbook configuration.
