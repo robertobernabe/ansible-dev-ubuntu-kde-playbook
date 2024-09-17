@@ -7,8 +7,8 @@
       register: sshd_config_d
 
     - name: Setting  an additional sshd_config file.
-      ansible.builtin.file:
-        - src: files/ssh_config.d/unfreeze-openssh-server.conf
-          dest: /etc/ssh/sshd_config.d/unfreeze-openssh-server.conf
+      ansible.builtin.copy:
+        src: files/ssh_config.d/unfreeze-openssh-server.conf
+        dest: /etc/ssh/sshd_config.d/unfreeze-openssh-server.conf
       when: sshd_config_d.stat.exists
       become: true
