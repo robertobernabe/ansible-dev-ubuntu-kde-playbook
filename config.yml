@@ -74,4 +74,5 @@ snap_packages:
     state: present
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
-post_provision_tasks: []
+post_provision_tasks:
+  - tasks/extra-config-openssh-server.yml

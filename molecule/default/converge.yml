@@ -4,4 +4,4 @@
   gather_facts: false
 
 - name: Include our playbook
-  import_playbook: ../../main.yml
+  ansible.builtin.import_playbook: ../../main.yml
