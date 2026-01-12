@@ -1,0 +1,43 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended"
+    ],
+    "pip_requirements": {
+        "fileMatch": [
+            "\\.devcontainer/requirements\\.txt$"
+        ]
+    },
+    "packageRules": [
+        {
+            "matchManagers": [
+                "pip_requirements"
+            ],
+            "matchUpdateTypes": [
+                "minor",
+                "patch"
+            ],
+            "groupName": "devcontainer non-major dependencies",
+            "groupSlug": "devcontainer-non-major"
+        },
+        {
+            "matchManagers": [
+                "pip_requirements"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "groupName": "devcontainer major dependencies",
+            "groupSlug": "devcontainer-major"
+        }
+    ],
+    "schedule": [
+        "before 6am on monday"
+    ],
+    "assignees": [
+        "robertobernabe"
+    ],
+    "labels": [
+        "dependencies"
+    ]
+}
