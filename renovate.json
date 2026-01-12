@@ -9,8 +9,8 @@
     },
     "pip-compile": {
         "enabled": true,
-        "fileMatch": [
-            "^\\.devcontainer/requirements\\.txt$"
+        "managerFilePatterns": [
+            "/^\\.devcontainer/requirements\\.txt$/"
         ]
     },
     "packageRules": [
