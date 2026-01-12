@@ -9,6 +9,12 @@
             "\\.devcontainer/requirements\\.txt$"
         ]
     },
+    "pip-compile": {
+        "fileMatch": [
+            "^requirements\\.txt$"
+        ],
+        "managerRunner": "uv-pip-compile"
+    },
     "packageRules": [
         {
             "matchManagers": [
