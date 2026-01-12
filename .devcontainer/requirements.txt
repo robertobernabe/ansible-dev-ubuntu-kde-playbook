@@ -1,6 +1,6 @@
-ansible==9.9.0
-molecule[ansible]==24.7.0
-molecule-plugins[docker,vagrant]==23.5.3
-ansible-lint==24.7.0
-yamllint==1.35.1
-requests==2.32.3
+ansible==13.2.0
+molecule[ansible]==25.12.0
+molecule-plugins[docker,vagrant]==25.8.12
+ansible-lint==26.1.0
+yamllint==1.37.1
+requests==2.32.5
