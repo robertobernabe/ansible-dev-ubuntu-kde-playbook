@@ -28,8 +28,8 @@ jobs:
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          echo "${{ secrets.SSH_DEPLOY_KEY_ANSIBLE_ROLES }}" > ~/.ssh/id_rsa
-          chmod 400 ~/.ssh/id_rsa
+          printf "%s\n" "${{ secrets.SSH_DEPLOY_KEY_ANSIBLE_ROLES }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
 
       - name: Install test dependencies.
         run: pip3 install yamllint -r ./.devcontainer/requirements.txt
