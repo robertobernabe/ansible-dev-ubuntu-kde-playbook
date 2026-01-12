@@ -1,0 +1,6 @@
+ansible
+molecule[ansible]
+molecule-plugins[docker,vagrant]
+ansible-lint
+yamllint
+requests
