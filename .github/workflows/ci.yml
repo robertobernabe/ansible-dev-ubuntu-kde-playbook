@@ -16,7 +16,7 @@ jobs:
       PIP_BREAK_SYSTEM_PACKAGES: "1"
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python 3.
         uses: actions/setup-python@v5
@@ -51,7 +51,7 @@ jobs:
           - image: ubuntu-24.04
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install test dependencies.
         run: |
