@@ -3,6 +3,7 @@
     "extends": [
         "config:recommended"
     ],
+    "dependencyDashboard": true,
     "pip_requirements": {
         "fileMatch": [
             "\\.devcontainer/requirements\\.txt$"
