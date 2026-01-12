@@ -4,15 +4,24 @@
         "config:recommended"
     ],
     "dependencyDashboard": true,
+    // 1. DISABLE the standard pip manager for this file so it doesn't fight with uv
     "pip_requirements": {
+        "enabled": false
+    },
+    // 2. CONFIGURE the compiler manager to handle your devcontainer
+    "pip-compile": {
+        "enabled": true,
+        // Renovate watches the input file (.in), not the output file (.txt)
         "fileMatch": [
-            "\\.devcontainer/requirements\\.txt$"
-        ]
+            "^\\.devcontainer/requirements\\.in$"
+        ],
+        "managerRunner": "uv-pip-compile"
     },
     "packageRules": [
         {
+            // Update the manager matcher to look for pip-compile
             "matchManagers": [
-                "pip_requirements"
+                "pip-compile"
             ],
             "matchUpdateTypes": [
                 "minor",
@@ -23,7 +32,7 @@
         },
         {
             "matchManagers": [
-                "pip_requirements"
+                "pip-compile"
             ],
             "matchUpdateTypes": [
                 "major"
@@ -34,7 +43,6 @@
     ],
     "schedule": [
         "at any time"
-        //"before 6am on monday"
     ],
     "assignees": [
         "robertobernabe"
