@@ -50,6 +50,7 @@ jobs:
         os:
           - image: ubuntu-22.04
           - image: ubuntu-24.04
+          - image: ubuntu-26.04
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v6
